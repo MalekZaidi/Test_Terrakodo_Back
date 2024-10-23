@@ -19,6 +19,7 @@ return new class extends Migration
         $table->text('description')->nullable();
         $table->date('date');
         $table->foreignId('jardin_id')->constrained()->onDelete('cascade'); // Relation avec Jardin
+        $table->foreignId('user_id')->constrained();   // clé étrangère vers la table users
         $table->timestamps();
     });
 }

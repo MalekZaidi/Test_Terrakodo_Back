@@ -142,10 +142,10 @@ class EvenementController extends Controller
 
     // Fonction pour créer un événement (front)
     public function create()
-    {
-        $jardins = Jardin::all();
-        return view('evenements.create', compact('jardins'));
-    }
+{
+    $jardins = Jardin::all();
+    return view('evenements.create', compact('jardins'));
+}
 
     // Fonction pour créer un événement (admin)
     public function createAdmin()

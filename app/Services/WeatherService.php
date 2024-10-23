@@ -10,7 +10,7 @@ class WeatherService
 
     public function __construct()
     {
-        $this->apiKey = env('OPENWEATHER_API_KEY');
+        $this->apiKey = '89766ae403da729b34f6670debadb02f';
     }
 
     public function getWeatherByLocation($city)

@@ -10,10 +10,12 @@ use App\Http\Controllers\AdviceController;
 use App\Http\Controllers\RatingController;
 
 use App\Http\Controllers\CategorieController;
-Route::get('/evenements/{id}', [EvenementController::class, 'frontDetaille'])->name('evenements.frontDetaille');
-
+// Route::get('/evenements/{id}', [EvenementController::class, 'frontDetaille'])->name('evenements.frontDetaille');
 Route::resource('jardins', JardinController::class);
 Route::resource('evenements', EvenementController::class);
+// web.php
+
+Route::get('/evenements/{id}/details', [EvenementController::class, 'frontDetaille'])->name('evenements.frontDetaille');
 
 Route::get('/', function () {
     return view('home'); 
