@@ -13,21 +13,25 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('title');
             $table->text('description')->nullable();
+            $table->integer('priority')->default(1); // Range: 1 to 5
+            $table->date('due_date')->nullable();
+            $table->boolean('is_completed')->default(false);
             $table->timestamps();
         });
     }
-
-    /**
+    
+        /**
      * Reverse the migrations.
      *
      * @return void
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('tasks');
     }
 };

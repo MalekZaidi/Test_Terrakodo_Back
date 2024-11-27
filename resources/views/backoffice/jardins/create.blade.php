@@ -22,24 +22,46 @@
 
                             <div class="mb-3">
                                 <label for="nom" class="form-label">Nom du Jardin <span class="text-danger">*</span></label>
-                                <input type="text" name="nom" id="nom" class="form-control" required>
+                                <input type="text" name="nom" id="nom" class="form-control @error('nom') is-invalid @enderror" value="{{ old('nom') }}" required>
                                 <small class="form-text text-muted">Doit contenir au moins 3 caractères.</small>
+                                @error('nom')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
 
                             <div class="mb-3">
                                 <label for="description" class="form-label">Description <span class="text-danger">*</span></label>
-                                <textarea name="description" id="description" class="form-control" rows="3" required></textarea>
+                                <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" rows="3" required>{{ old('description') }}</textarea>
                                 <small class="form-text text-muted">Doit contenir au moins 10 caractères.</small>
+                                @error('description')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
 
                             <div class="mb-3">
                                 <label for="adresse" class="form-label">Adresse <span class="text-danger">*</span></label>
-                                <input type="text" name="adresse" id="adresse" class="form-control" required>
+                                <input type="text" name="adresse" id="adresse" class="form-control @error('adresse') is-invalid @enderror" value="{{ old('adresse') }}" required>
+                                @error('adresse')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
                             </div>
-                            <div class="form-group">
-        <label for="image">Image du Jardin</label>
-        <input type="file" name="image" class="form-control" id="image">
-    </div>
+
+                            <div class="mb-3">
+                                <label for="image" class="form-label">Image du Jardin</label>
+                                <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
+                                @error('image')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
                             <button type="submit" class="btn btn-primary">Créer</button>
                             <a href="{{ route('gardens.index.admin') }}" class="btn btn-secondary">Retour à la Liste</a>
                         </form>
